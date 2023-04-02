@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Sprites/forge_verte.png" type="Texture" id=1]
+[ext_resource path="res://copperItem.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/Area2D.gd" type="Script" id=3]
+
+[node name="Area2D" type="Area2D"]
+position = Vector2( -0.0429459, -0.0211544 )
+script = ExtResource( 3 )
+
+[node name="item" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0.173096, 78.8192 )
+z_index = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -420.611, -90.2154, -373.143, -202.733, -292.271, -209.765, -197.335, -309.976, -107.672, -295.911, -53.1715, -264.266, -25.0422, -234.378, 25.9423, -239.653, 96.2658, -285.363, 214.058, -283.605, 319.543, -200.975, 412.721, -144.716, 444.367, -42.7471, 460.189, 6.47928, 481.287, 66.2542, 474.254, 141.852, 442.609, 185.804, 414.479, 217.45, 312.51, 215.691, 198.235, 235.03, 43.5231, 233.272, -177.996, 233.272, -271.174, 226.24, -320.401, 192.836, -373.143, 159.433, -424.128, 141.852, -499.725, 90.8674, -464.564, -12.8596, -434.676, -48.0214 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -216.349, -31.4783 )
+texture = ExtResource( 1 )

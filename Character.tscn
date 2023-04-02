@@ -1,0 +1,71 @@
+[gd_scene load_steps=28 format=2]
+
+[ext_resource path="res://Sprites/robot_avant_3.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/robot_avant_4.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/robot_avant_1.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/robot_avant_2.png" type="Texture" id=4]
+[ext_resource path="res://scripts/CharMovements.gd" type="Script" id=5]
+[ext_resource path="res://noises/forge (1).ogg" type="AudioStream" id=6]
+[ext_resource path="res://BruitForge.gd" type="Script" id=7]
+[ext_resource path="res://Sprites/robot_profil_droit_6.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/robot_profil_droit_2.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/robot_profil_gauche_7.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/robot_profil_gauche_3.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/robot_profil_droit_7.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/robot_profil_gauche_5.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/robot_profil_gauche_4.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/robot_profil_droit_5.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/robot_profil_gauche_6.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/robot_profil_droit_4.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/robot_profil_droit_1.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/robot_profil_droit_3.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/robot_profil_gauche_2.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/robot_dos_1.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/robot_dos_2.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/robot_dos_4.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/robot_dos_3.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/robot_profil_gauche_1.png" type="Texture" id=25]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 24 ), ExtResource( 23 ) ],
+"loop": true,
+"name": "UP",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 25 ), ExtResource( 20 ), ExtResource( 11 ), ExtResource( 14 ), ExtResource( 13 ), ExtResource( 16 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "left",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 18 ), ExtResource( 9 ), ExtResource( 19 ), ExtResource( 17 ), ExtResource( 15 ), ExtResource( 8 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "right",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 1 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "run",
+"speed": 15.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 51.956, 26.5674 )
+
+[node name="Character" type="KinematicBody2D"]
+position = Vector2( 216.349, 296.191 )
+script = ExtResource( 5 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 1.35913, -37.5609 )
+scale = Vector2( 1.25285, 1.26715 )
+frames = SubResource( 1 )
+animation = "right"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 1.34868, 18.3552 )
+shape = SubResource( 2 )
+
+[node name="BruitForge" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+script = ExtResource( 7 )

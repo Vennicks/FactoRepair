@@ -1,0 +1,94 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://BruitPorteHaut.gd" type="Script" id=1]
+[ext_resource path="res://Character.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/salle_1.png" type="Texture" id=3]
+[ext_resource path="res://scripts/Walls.gd" type="Script" id=4]
+[ext_resource path="res://Comptoir.tscn" type="PackedScene" id=5]
+[ext_resource path="res://EcraPause.tscn" type="PackedScene" id=6]
+[ext_resource path="res://SceneChanger.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Sprites/caisse.png" type="Texture" id=8]
+[ext_resource path="res://scripts/FirstScene.gd" type="Script" id=9]
+[ext_resource path="res://noises/bruit_de_sas.ogg" type="AudioStream" id=10]
+[ext_resource path="res://Timer.tscn" type="PackedScene" id=11]
+[ext_resource path="res://alien_dos.png" type="Texture" id=12]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 253.275, 104.732 )
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 208.292
+
+[node name="Node2D" type="Node2D"]
+position = Vector2( 0.0739365, -0.0231266 )
+script = ExtResource( 9 )
+
+[node name="Salle" type="Sprite" parent="."]
+position = Vector2( 961.568, 538.717 )
+scale = Vector2( 1.60013, 1.5905 )
+z_index = -10
+texture = ExtResource( 3 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Salle"]
+position = Vector2( -497.275, -194.427 )
+scale = Vector2( 0.624948, 0.628732 )
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Salle/StaticBody2D"]
+position = Vector2( 933.839, -65.3152 )
+shape = SubResource( 1 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Salle"]
+position = Vector2( -600.93, -338.709 )
+scale = Vector2( 0.624948, 0.628732 )
+script = ExtResource( 4 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Salle/StaticBody2D2"]
+polygon = PoolVector2Array( 17.5849, -0.550299, 1914.26, 0.208979, 1922.44, 1076.44, 1181.03, 1076.44, 1134.78, 958.083, 1451.75, 962.164, 1458.55, 907.749, 1425.9, 871.019, 1438.14, 807.081, 1485.75, 773.072, 1534.73, 771.711, 1579.62, 794.838, 1602.75, 837.009, 1593.22, 873.739, 1580.98, 924.073, 1580.98, 958.083, 1804.08, 960.804, 1808.16, 864.217, 1776.88, 865.577, 1744.23, 828.847, 1744.23, 793.477, 1760.55, 766.27, 1787.76, 747.225, 1805.44, 744.504, 1809.52, 635.674, 1798.49, 628.409, 1791.5, 599.25, 1786.83, 561.927, 1783.33, 497.777, 1784.5, 455.789, 1788, 417.299, 1796.16, 379.976, 1805.49, 350.817, 1808.73, 135.088, 1617.3, 138.103, 1618.81, 199.904, 1633.88, 210.455, 1636.9, 227.036, 1632.37, 231.558, 1629.36, 237.588, 1510.28, 243.617, 1504.25, 228.544, 1445.46, 228.259, 1367.73, 180.143, 1354.78, 183.844, 1354.78, 265.272, 844.008, 270.823, 844.008, 189.396, 825.502, 183.844, 777.386, 219.006, 745.925, 228.259, 699.66, 224.558, 684.855, 237.512, 618.233, 239.363, 570.117, 235.662, 555.312, 220.857, 575.668, 189.396, 581.22, 141.28, 399.453, 139.496, 424.066, 215.094, 425.824, 227.4, 401.211, 230.917, 392.42, 209.82, 148.046, 209.82, 151.562, 225.642, 130.465, 227.4, 149.804, 155.319, 146.288, 143.012, 102.336, 141.254, 103.884, 626.524, 681.484, 635.549, 704.759, 957.214, 790.282, 957.214, 727.565, 1077.76, 0.0870476, 1079.57, -0.0769043, -0.30229 )
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Salle"]
+script = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Salle/StaticBody2D3"]
+position = Vector2( 359.433, -75.2143 )
+scale = Vector2( 0.624949, 0.628733 )
+z_index = 5
+texture = ExtResource( 8 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Salle/StaticBody2D3"]
+polygon = PoolVector2Array( 277.06, 39.7737, 281.641, -38.0664, 438.929, -32.4332, 438.929, 40.7979 )
+
+[node name="Comptoir" parent="." instance=ExtResource( 5 )]
+position = Vector2( 394.076, 780.541 )
+scale = Vector2( 2, 2 )
+
+[node name="EcraPause" parent="." instance=ExtResource( 6 )]
+
+[node name="SceneChanger" parent="." instance=ExtResource( 7 )]
+
+[node name="player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 434.355, 414.907 )
+
+[node name="Exit" type="Area2D" parent="."]
+position = Vector2( 947.86, 1130.37 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
+position = Vector2( 11.719, -27.7808 )
+shape = SubResource( 2 )
+
+[node name="BruitPorteHaut" type="AudioStreamPlayer" parent="Exit"]
+stream = ExtResource( 10 )
+volume_db = 1.0
+script = ExtResource( 1 )
+
+[node name="RichTextLabel" parent="." instance=ExtResource( 11 )]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 261.31, 715.399 )
+scale = Vector2( 0.480436, 0.459847 )
+z_index = 200
+texture = ExtResource( 12 )
+[connection signal="body_entered" from="Comptoir" to="player" method="_on_Comptoir_body_entered"]
+[connection signal="body_exited" from="Comptoir" to="player" method="_on_Comptoir_body_exited"]
+[connection signal="body_entered" from="Exit" to="Exit/BruitPorteHaut" method="_on_Exit_body_entered"]
+[connection signal="body_entered" from="Exit" to="." method="_on_Exit_body_entered"]

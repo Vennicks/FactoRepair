@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/bruit_de_sas.ogg-4cc238f5fc20490aba3b00fdbf9fc655.oggstr"
+
+[deps]
+
+source_file="res://noises/bruit_de_sas.ogg"
+dest_files=[ "res://.import/bruit_de_sas.ogg-4cc238f5fc20490aba3b00fdbf9fc655.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

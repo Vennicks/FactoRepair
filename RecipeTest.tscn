@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scripts/time_displayer.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/GridContainer.gd" type="Script" id=4]
+[ext_resource path="res://scripts/TextureRect.gd" type="Script" id=5]
+[ext_resource path="res://Sprites/recipe test.gd" type="Script" id=6]
+
+[sub_resource type="Theme" id=1]
+Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = null
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = null
+Button/styles/normal = null
+Button/styles/pressed = null
+
+[node name="Recip_node" type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="result 1" type="TextureRect" parent="."]
+margin_left = 154.095
+margin_top = -149.515
+margin_right = 304.095
+margin_bottom = 0.485168
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="gridient 1" type="GridContainer" parent="."]
+margin_right = 4.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 50 )
+theme = SubResource( 1 )
+columns = 3
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ingredient 1" type="TextureRect" parent="gridient 1"]
+
+[node name="ingredient 2" type="TextureRect" parent="gridient 1"]
+margin_left = 4.0
+margin_right = 4.0
+
+[node name="time_displayer" type="RichTextLabel" parent="."]
+margin_left = 1468.72
+margin_top = 14.7014
+margin_right = 1618.72
+margin_bottom = 164.701
+rect_min_size = Vector2( 100, 100 )
+rect_scale = Vector2( 3, 3 )
+tab_size = 24
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="time_displayer"]
+autostart = true
+[connection signal="timeout" from="time_displayer/Timer" to="time_displayer" method="_on_Timer_timeout"]

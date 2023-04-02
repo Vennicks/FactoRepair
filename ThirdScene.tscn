@@ -1,0 +1,89 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://scripts/ThirdScript.gd" type="Script" id=1]
+[ext_resource path="res://Character.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/Walls.gd" type="Script" id=3]
+[ext_resource path="res://Sprites/salle_3.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/serie_caisse_salle3.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/une_etagere_une.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/caisse_salle_3_correction.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/caisses_hautes_salle3.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/petite_caisse_salle_3.png" type="Texture" id=9]
+[ext_resource path="res://goldGenerator.tscn" type="PackedScene" id=10]
+[ext_resource path="res://BruitPorteDroite.gd" type="Script" id=11]
+[ext_resource path="res://noises/bruit_de_sas.ogg" type="AudioStream" id=12]
+[ext_resource path="res://EcraPause.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Timer.tscn" type="PackedScene" id=14]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 146.78
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 960.239, 539.861 )
+z_index = -10
+texture = ExtResource( 4 )
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( -84.3768, 532.675 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 51.0068, -18.7354 )
+shape = SubResource( 1 )
+
+[node name="BruitPorteDroite" type="AudioStreamPlayer" parent="Area2D"]
+stream = ExtResource( 12 )
+volume_db = 1.0
+script = ExtResource( 11 )
+
+[node name="player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 166.396, 521.077 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+script = ExtResource( 3 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( 1.14325, 335.995, 99.3268, 391.38, 99.3268, 139.627, 255.414, 142.145, 242.826, 464.389, 569.181, 465.827, 569.181, 431.618, 576.398, 325.843, 415.083, 325.843, 430.056, 137.601, 1808.73, 139.627, 1811.25, 474.459, 1786.12, 540.018, 1498.65, 541.099, 1479.15, 572.267, 1483.99, 588.111, 1487.95, 606.597, 1491.91, 620.681, 1494.12, 633.004, 1499.88, 647.751, 1499.88, 704.243, 1129.75, 692.555, 1139.49, 628.27, 1129.75, 593.206, 1063.52, 569.83, 1073.26, 556.194, 1073.72, 539.07, 1059.74, 528.203, 1062.06, 395.113, 1110.04, 397.435, 1559.6, 396.661, 1559.6, 396.661, 1565.75, 280.096, 1396.88, 279.76, 1397.74, 267.065, 1406.38, 216.617, 1388.22, 218.712, 1381.94, 264.802, 1344.93, 269.691, 1259.03, 271.088, 1161.96, 271.786, 1113.08, 271.088, 1089.33, 271.786, 1079.65, 274.526, 1071.78, 276.379, 1063.44, 274.526, 1058.71, 280.182, 1037.25, 262.332, 1010.67, 258.045, 994.377, 276.05, 984.946, 285.481, 981.517, 312.06, 942.935, 312.06, 942.314, 257.056, 764.536, 254.354, 762.789, 390.236, 938.865, 392.289, 942.935, 366.932, 942.078, 356.643, 982.374, 355.786, 976.372, 515.257, 964.369, 518.687, 958.368, 531.547, 955.796, 542.693, 959.225, 550.41, 982.374, 564.985, 1001.24, 571.844, 972.086, 575.273, 954.081, 579.56, 942.078, 583.847, 930.932, 587.277, 921.501, 594.136, 907.783, 603.567, 909.497, 614.713, 899.113, 588.208, 234.339, 583.724, 233.515, 692.583, 894.598, 706.299, 895.548, 653.099, 911.698, 650.249, 932.598, 664.499, 960.148, 672.099, 982.948, 673.049, 1011.45, 677.799, 1048.5, 675.899, 1087.45, 669.249, 1117.85, 657.849, 1128.3, 690.149, 1105.5, 713.899, 1097.9, 727.199, 1089.35, 745.249, 1083.65, 768.999, 1072.25, 790.849, 1077, 810.799, 1071.3, 823.149, 1057.05, 818.399, 1053.25, 824.099, 1048.5, 843.099, 1046.6, 860.199, 1051.35, 879.199, 1063.7, 879.199, 1083.65, 885.849, 1102.65, 890.599, 1127.3, 893.967, 1143.55, 890.872, 1149.74, 896.288, 1148.19, 906.347, 1158.25, 924.918, 1155.93, 955.869, 886.653, 955.095, 888.975, 899.383, 889.471, 856.36, 711.449, 847.766, 715.132, 769.191, 540.794, 769.191, 506.417, 759.369, 494.14, 724.992, 456.08, 724.992, 437.664, 740.953, 431.525, 756.914, 419.248, 764.28, 405.743, 783.924, 416.793, 797.429, 429.07, 809.706, 430.298, 954.579, 415.565, 955.807, 413.109, 974.223, 413.109, 953.351, 100.239, 956.974, 103.58, 658.012, 0.0284729, 664.692, -1.64171, 1078.9, 1919.6, 1077.09, 1920.9, 0.60408, -0.434334, -0.403435 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 572.118, 535.986 )
+z_index = 25
+texture = ExtResource( 5 )
+
+[node name="Sprite3" type="Sprite" parent="."]
+position = Vector2( 1643.77, 459.796 )
+z_index = 25
+texture = ExtResource( 6 )
+
+[node name="Sprite4" type="Sprite" parent="."]
+position = Vector2( 1232.77, 188.642 )
+z_index = 25
+texture = ExtResource( 6 )
+
+[node name="Sprite5" type="Sprite" parent="."]
+position = Vector2( 855.997, 210.918 )
+z_index = 25
+texture = ExtResource( 7 )
+
+[node name="Sprite6" type="Sprite" parent="."]
+position = Vector2( 413.38, 197.66 )
+z_index = 25
+texture = ExtResource( 8 )
+
+[node name="Sprite7" type="Sprite" parent="."]
+position = Vector2( 1481.99, 266.994 )
+z_index = 25
+texture = ExtResource( 9 )
+
+[node name="Generator" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1416.89, 783.38 )
+
+[node name="EcraPause" parent="." instance=ExtResource( 13 )]
+
+[node name="RichTextLabel" parent="." instance=ExtResource( 14 )]
+[connection signal="body_entered" from="Area2D" to="Area2D/BruitPorteDroite" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="Generator" to="player" method="_on_Generator_body_entered"]
+[connection signal="body_exited" from="Generator" to="player" method="_on_Generator_body_exited"]

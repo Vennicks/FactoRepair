@@ -1,0 +1,90 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://scripts/FifthScript.gd" type="Script" id=1]
+[ext_resource path="res://Character.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/salle 5_correct_2.png" type="Texture" id=3]
+[ext_resource path="res://scripts/Walls.gd" type="Script" id=4]
+[ext_resource path="res://Sprites/salle_5_caisses.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/caisse_salle5_pres_forge.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/une_etagere_une.png" type="Texture" id=7]
+[ext_resource path="res://copperGenerator.tscn" type="PackedScene" id=8]
+[ext_resource path="res://BruitPortegauche.gd" type="Script" id=9]
+[ext_resource path="res://noises/bruit_de_sas.ogg" type="AudioStream" id=10]
+[ext_resource path="res://EcraPause.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Timer.tscn" type="PackedScene" id=12]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 134.473
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 960.005, 540.015 )
+z_index = -10
+texture = ExtResource( 3 )
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 1926.1, 510.807 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -30.875, 20.1892 )
+shape = SubResource( 1 )
+
+[node name="BruitPortegauche" type="AudioStreamPlayer" parent="Area2D"]
+stream = ExtResource( 10 )
+volume_db = 1.0
+script = ExtResource( 9 )
+
+[node name="Generator" parent="." instance=ExtResource( 8 )]
+position = Vector2( 482.18, 207.009 )
+
+[node name="player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 388.548, 870.188 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+script = ExtResource( 4 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( 1918.45, 348.392, 1920.44, 0.150747, -0.320023, 0.18025, 0.505676, 1079.22, 1920.14, 1079.79, 1920.93, 688.339, 1804.33, 680.622, 1805.19, 957.555, 1669.72, 956.697, 1674.01, 903.54, 1330.2, 898.396, 1327.63, 954.982, 780.511, 955.91, 775.751, 743.296, 761.471, 721.082, 729.738, 716.322, 705.938, 727.429, 691.658, 749.642, 677.378, 768.682, 663.098, 795.656, 666.271, 808.349, 680.551, 819.456, 686.898, 955.91, 104.589, 954.323, 99.8286, 305.374, 129.975, 303.787, 169.642, 316.48, 206.136, 314.894, 212.655, 336.733, 228.945, 348.736, 250.379, 357.31, 274.386, 364.169, 290.676, 364.169, 309.538, 362.454, 329.258, 359.024, 337.832, 353.88, 347.263, 353.88, 375.556, 361.597, 401.277, 364.169, 426.999, 369.313, 452.72, 367.598, 481.871, 363.311, 511.021, 367.598, 527.312, 371.028, 541.03, 369.313, 567.608, 366.741, 588.185, 360.739, 607.047, 355.595, 625.052, 359.882, 645.629, 363.311, 679.067, 366.741, 697.072, 366.741, 721.078, 364.169, 737.368, 356.452, 752.801, 347.021, 757.945, 330.731, 761.375, 313.584, 768.234, 312.726, 778.522, 319.585, 798.242, 314.441, 823.106, 307.582, 848.827, 304.152, 854.829, 301.58, 876.719, 274.013, 917.417, 270.998, 914.402, 356.917, 896.314, 364.453, 891.792, 376.512, 871.168, 387.061, 869.97, 420.59, 869.372, 477.47, 1035.82, 481.063, 1037.02, 429.571, 1031.63, 382.87, 994.291, 370.483, 1001.83, 136.845, 1529.4, 135.338, 1707.26, 138.352, 1806.75, 133.83, 1803.73, 408.166 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+visible = false
+script = ExtResource( 4 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
+polygon = PoolVector2Array( 1446.25, 577.169, 1454.07, 502.497, 1451.5, 483.635, 790.459, 489.636, 783.6, 507.641, 788.988, 533.183, 763.206, 527.044, 741.107, 518.45, 693.225, 509.856, 666.215, 503.717, 623.244, 509.856, 582.729, 515.994, 553.263, 533.183, 539.758, 550.371, 543.441, 588.431, 519.429, 610.676, 342.959, 613.33, 342.959, 733.41, 514.785, 735.4, 518.766, 639.204, 518.102, 627.262, 518.102, 590.774, 544.669, 588.431, 561.857, 600.708, 582.729, 608.075, 620.788, 612.985, 674.809, 611.758, 705.502, 605.619, 759.523, 588.431, 800.038, 588.431, 809.86, 612.985, 933.861, 622.807, 933.861, 824.156, 1097.15, 827.84, 1100.83, 615.441, 1442.14, 610.53 )
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+script = ExtResource( 4 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D3"]
+polygon = PoolVector2Array( 1536.88, 135.806, 1536.88, 236.514, 1550.85, 250.48, 1579.52, 264.447, 1605.24, 268.123, 1626.56, 269.593, 1642, 272.533, 1662.58, 273.268, 1677.28, 267.388, 1702.28, 268.123, 1723.59, 260.772, 1750.06, 251.951, 1762.55, 245.335, 1766.23, 219.607, 1766.96, 202.7, 1761.82, 186.528, 1763.29, 139.482 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 1503.57, 754.13 )
+z_index = 25
+texture = ExtResource( 5 )
+
+[node name="Sprite3" type="Sprite" parent="."]
+position = Vector2( 435.78, 540.579 )
+z_index = 25
+texture = ExtResource( 6 )
+
+[node name="Sprite4" type="Sprite" parent="."]
+position = Vector2( 1304.41, 402.342 )
+z_index = 25
+texture = ExtResource( 7 )
+
+[node name="Sprite5" type="Sprite" parent="."]
+position = Vector2( 950.518, 408.141 )
+z_index = 25
+texture = ExtResource( 7 )
+
+[node name="EcraPause" parent="." instance=ExtResource( 11 )]
+
+[node name="Node2D" parent="." instance=ExtResource( 12 )]
+[connection signal="body_entered" from="Area2D" to="Area2D/BruitPortegauche" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="Generator" to="player" method="_on_Generator_body_entered"]
+[connection signal="body_exited" from="Generator" to="player" method="_on_Generator_body_exited"]

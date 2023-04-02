@@ -1,0 +1,152 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://scripts/SecondScene.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/salle_2.png" type="Texture" id=2]
+[ext_resource path="res://Character.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sprites/atelier_haut.png" type="Texture" id=4]
+[ext_resource path="res://scripts/Walls.gd" type="Script" id=5]
+[ext_resource path="res://SceneChanger.tscn" type="PackedScene" id=6]
+[ext_resource path="res://EcraPause.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Sprites/atelier_bas_gauche.png" type="Texture" id=8]
+[ext_resource path="res://scripts/crafter.gd" type="Script" id=9]
+[ext_resource path="res://noises/bruit_de_sas.ogg" type="AudioStream" id=10]
+[ext_resource path="res://BruitPorteGauche2.gd" type="Script" id=11]
+[ext_resource path="res://BruitPorteDroite2.gd" type="Script" id=12]
+[ext_resource path="res://BruitPorteHaut2.gd" type="Script" id=13]
+[ext_resource path="res://BruitPorteBas2.gd" type="Script" id=14]
+[ext_resource path="res://Timer.tscn" type="PackedScene" id=15]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 171.302
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 152.537
+
+[sub_resource type="BitmapFont" id=3]
+height = 10.0
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 960.158, 539.978 )
+z_index = -10
+texture = ExtResource( 2 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite"]
+position = Vector2( -960.158, -539.978 )
+script = ExtResource( 5 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite/StaticBody2D"]
+polygon = PoolVector2Array( 0.956146, -0.64679, 792.657, 0.167725, 798.582, 69.9254, 814.095, 102.058, 825.175, 138.624, 732.1, 138.624, 758.693, 203.998, 757.585, 211.754, 745.397, 215.078, 737.641, 206.214, 487.225, 203.998, 486.117, 215.078, 466.172, 213.97, 455.092, 201.781, 475.036, 141.948, 365.341, 136.407, 390.826, 205.106, 386.394, 215.078, 373.097, 215.078, 360.909, 194.025, 122.682, 200.673, 126.006, 219.51, 100.521, 221.726, 104.953, 390.147, 0.797913, 336.962 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Sprite"]
+position = Vector2( -960.158, -539.978 )
+script = ExtResource( 5 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite/StaticBody2D2"]
+polygon = PoolVector2Array( 1144.02, -5.07697, 1919.63, -0.717194, 1919.93, 337.581, 1804.52, 401.534, 1804.52, 251.575, 1559, 247.164, 1562.4, 131.9, 1138.9, 135.172 )
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Sprite"]
+position = Vector2( -960.158, -539.978 )
+script = ExtResource( 5 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite/StaticBody2D3"]
+polygon = PoolVector2Array( 1109.68, 958.42, 1160.01, 1080.85, 1921.82, 1078.13, 1920.46, 698.588, 1895.98, 695.868, 1859.25, 679.543, 1844.28, 672.741, 1804.83, 668.66, 1806.19, 957.06 )
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Sprite"]
+position = Vector2( -960.158, -539.978 )
+script = ExtResource( 5 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite/StaticBody2D4"]
+polygon = PoolVector2Array( -0.745453, 664.061, 4.55463, 1077.47, 706.814, 1077.47, 762.465, 960.865, 102.606, 958.215, 99.9559, 661.411 )
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="Sprite"]
+position = Vector2( -960.158, -539.978 )
+script = ExtResource( 5 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite/StaticBody2D5"]
+polygon = PoolVector2Array( 853.632, 800.078, 825.931, 779.025, 823.715, 719.191, 811.527, 719.191, 763.881, 722.516, 725.1, 715.867, 702.939, 702.571, 688.535, 679.302, 655.294, 679.302, 632.025, 672.654, 617.621, 667.114, 607.648, 660.466, 598.784, 653.817, 585.488, 632.765, 592.136, 616.144, 597.676, 600.632, 609.865, 579.579, 617.621, 571.823, 628.701, 561.851, 649.754, 552.986, 669.698, 549.662, 706.263, 550.77, 1261.39, 549.662, 1281.33, 554.094, 1301.28, 568.499, 1310.14, 575.147, 1334.52, 592.875, 1338.95, 609.496, 1343.38, 630.549, 1336.73, 649.385, 1333.41, 658.25, 1309.03, 668.222, 1281.33, 677.086, 1245.88, 681.518, 1239.23, 688.166, 1233.69, 698.139, 1215.96, 712.543, 1174.96, 721.407, 1136.18, 722.516, 1111.8, 708.111, 1111.8, 774.593, 1086.32, 797.862, 1070.81, 802.294 )
+
+[node name="ReturnDesk" type="Area2D" parent="."]
+position = Vector2( 969.937, 14.3499 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ReturnDesk"]
+shape = SubResource( 1 )
+
+[node name="BruitPorteHaut2" type="AudioStreamPlayer" parent="ReturnDesk"]
+stream = ExtResource( 10 )
+volume_db = 1.0
+script = ExtResource( 13 )
+
+[node name="goToFirstRes" type="Area2D" parent="."]
+position = Vector2( 1939.42, 524.184 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="goToFirstRes"]
+position = Vector2( -6.84961, 0 )
+shape = SubResource( 2 )
+
+[node name="BruitPorteDroite2" type="AudioStreamPlayer" parent="goToFirstRes"]
+stream = ExtResource( 10 )
+volume_db = 1.0
+script = ExtResource( 12 )
+
+[node name="goToSecondtRes" type="Area2D" parent="."]
+position = Vector2( 938.458, 1081.12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="goToSecondtRes"]
+position = Vector2( -6.92743, 7.98653 )
+shape = SubResource( 2 )
+
+[node name="BruitPorteBas2" type="AudioStreamPlayer" parent="goToSecondtRes"]
+stream = ExtResource( 10 )
+volume_db = 1.0
+script = ExtResource( 14 )
+
+[node name="goToThirdtRes" type="Area2D" parent="."]
+position = Vector2( 56.8931, 533.554 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="goToThirdtRes"]
+position = Vector2( -74.8745, -25.3347 )
+shape = SubResource( 2 )
+
+[node name="BruitPorteGauche2" type="AudioStreamPlayer" parent="goToThirdtRes"]
+stream = ExtResource( 10 )
+volume_db = 1.0
+script = ExtResource( 11 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 968.428, 486.699 )
+z_index = 3
+texture = ExtResource( 4 )
+
+[node name="EcraPause" parent="." instance=ExtResource( 7 )]
+
+[node name="SceneChanger" parent="." instance=ExtResource( 6 )]
+
+[node name="player" parent="." instance=ExtResource( 3 )]
+z_index = 1
+
+[node name="Crafter" type="Area2D" parent="."]
+script = ExtResource( 9 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Crafter"]
+polygon = PoolVector2Array( 959.45, 551.021, 919.219, 499.353, 768.535, 496.095, 649.601, 512.99, 600.774, 551.539, 579.126, 572.489, 564.46, 616.484, 546.682, 641.365, 526.105, 714.242, 549.255, 798.264, 665.857, 853.136, 744.736, 844.563, 795.321, 839.418, 847.621, 839.418, 881.058, 832.559, 892.678, 825.286, 964.24, 804.286 )
+
+[node name="Sprite" type="Sprite" parent="Crafter"]
+position = Vector2( 967.626, 487.724 )
+texture = ExtResource( 8 )
+
+[node name="RichTextLabel" parent="." instance=ExtResource( 15 )]
+size_flags_stretch_ratio = 20.27
+custom_fonts/mono_font = SubResource( 3 )
+[connection signal="body_entered" from="ReturnDesk" to="ReturnDesk/BruitPorteHaut2" method="_on_ReturnDesk_body_entered"]
+[connection signal="body_entered" from="ReturnDesk" to="." method="_on_ReturnDesk_body_entered"]
+[connection signal="body_entered" from="goToFirstRes" to="goToFirstRes/BruitPorteDroite2" method="_on_goToFirstRes_body_entered"]
+[connection signal="body_entered" from="goToFirstRes" to="." method="_on_goToFirstRes_body_entered"]
+[connection signal="body_entered" from="goToSecondtRes" to="goToSecondtRes/BruitPorteBas2" method="_on_goToSecondtRes_body_entered"]
+[connection signal="body_entered" from="goToSecondtRes" to="." method="_on_goToSecondtRes_body_entered"]
+[connection signal="body_entered" from="goToThirdtRes" to="goToThirdtRes/BruitPorteGauche2" method="_on_goToThirdtRes_body_entered"]
+[connection signal="body_entered" from="goToThirdtRes" to="." method="_on_goToThirdtRes_body_entered"]
+[connection signal="body_entered" from="Crafter" to="player" method="_on_Crafter_body_entered"]
+[connection signal="body_exited" from="Crafter" to="player" method="_on_Crafter_body_exited"]

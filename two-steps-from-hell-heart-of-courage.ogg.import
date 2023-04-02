@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/two-steps-from-hell-heart-of-courage.ogg-3ec4c07c7fd689827581e3aaea258f89.oggstr"
+
+[deps]
+
+source_file="res://two-steps-from-hell-heart-of-courage.ogg"
+dest_files=[ "res://.import/two-steps-from-hell-heart-of-courage.ogg-3ec4c07c7fd689827581e3aaea258f89.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

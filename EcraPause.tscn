@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/RepPause.gd" type="Script" id=1]
+[ext_resource path="res://scripts/LeavePause.gd" type="Script" id=2]
+[ext_resource path="res://scripts/Pause.gd" type="Script" id=3]
+[ext_resource path="res://Menu/menu.png" type="Texture" id=4]
+
+[node name="EcraPause" type="CanvasLayer"]
+layer = 100
+
+[node name="Pause" type="Control" parent="."]
+pause_mode = 2
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlackOverlay" type="ColorRect" parent="Pause"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0588235, 0.0588235, 0.0627451, 0.588235 )
+
+[node name="RepPause" type="Button" parent="Pause"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -518.0
+margin_top = -293.0
+margin_right = 492.0
+margin_bottom = -75.0
+flat = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LeavePause" type="Button" parent="Pause"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -453.0
+margin_top = 89.0
+margin_right = 419.0
+margin_bottom = 251.0
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Pause"]
+position = Vector2( 651.779, 403.41 )
+texture = ExtResource( 4 )
+[connection signal="pressed" from="Pause/RepPause" to="Pause" method="_on_RepPause_pressed"]

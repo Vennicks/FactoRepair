@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://AudioInGame.gd" type="Script" id=1]
+[ext_resource path="res://noises/In-Game_SoundTrack.ogg" type="AudioStream" id=2]
+
+[node name="AudioInGame" type="AudioStreamPlayer"]
+stream = ExtResource( 2 )
+script = ExtResource( 1 )
